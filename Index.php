@@ -16,6 +16,8 @@
 
     private $currentLevel;
 
+    private $elementCount;
+
     public function __construct ($arg_nestingLevel)
     {
       if (1 > $arg_nestingLevel)
@@ -27,6 +29,7 @@
       $this->indexElement = new SimpleXMLElement("<ol/>");
       $this->currentGroup = $this->indexElement;
       $this->currentLevel = 1;
+      $this->elementCount = 0;
     }
 
     public function __toString ()
@@ -63,12 +66,19 @@
 
       $this->currentLevel = $arg_level;
 
+      $this->elementCount++;
+
       return $reference;
     }
 
     public function getIndexElement ()
     {
       return $this->indexElement;
+    }
+
+    public function count ()
+    {
+      return $this->elementCount;
     }
 
   }
