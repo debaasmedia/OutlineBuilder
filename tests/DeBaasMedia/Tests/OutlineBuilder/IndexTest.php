@@ -1,6 +1,6 @@
 <?php
 
-  namespace DeBaasMedia\OutlineBuilder\Tests;
+  namespace DeBaasMedia\Tests\OutlineBuilder;
 
   use DeBaasMedia\OutlineBuilder\Index
     , DeBaasMedia\OutlineBuilder\Exception\InvalidArgumentException;

@@ -4,7 +4,7 @@
 
   use DoctrineExtensions\Sluggable\SlugNormalizer
     , SimpleXMLElement
-    , Symfony\Component\CssSelector\Parser;
+    , Symfony\Component\CssSelector\CssSelector;
 
   class Builder
   {
@@ -34,7 +34,7 @@
       $prefix = $this->getNamespacePrefix() . 'h';
       $query  = $prefix . implode(', ' . $prefix, range(1, 6));
 
-      foreach ($this->getArticle()->xpath(Parser::cssToXpath($query)) as $node)
+      foreach ($this->getArticle()->xpath(CssSelector::toXpath($query)) as $node)
       {
         $text       = (string) $node;
         $level      = $this->_extractHeadingLevel($node->getName());
